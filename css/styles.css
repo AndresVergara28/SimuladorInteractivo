@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.banner-verify-age{
+    top: 25vh;
+    left: 50vw;
+    border-radius: 12px;
+    background-color: white;
+    align-self: center;
+    place-self: center;
+}
