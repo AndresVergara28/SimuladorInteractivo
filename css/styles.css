@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+header{
+    background-color: black;
+}
+
+.mainLogo{
+    width: 10rem;
+}
+
 .banner-verify-age{
     top: 25vh;
     left: 50vw;

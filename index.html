@@ -7,6 +7,7 @@
     <meta name="description"
         content="Bienvenido a TheWhiskeyHOuse, tu destino en línea para encontrar una amplia selección de licores, cigarrillos electrónicos y cigarrillos tradicionales. Descubre nuestras ofertas exclusivas y disfruta de la mejor calidad en productos para adultos. ¡Visítanos ahora y encuentra tus favoritos!" />
     <title>TheWhiskeyHOuse</title>
+    <link rel="shortcut icon" href="recursos/logos/TheWhiskeyHOuseLogo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
@@ -14,21 +15,18 @@
 </head>
 
 <body>
-    <header class="p-3 text-bg-dark">
+    <header class="py-3">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap" />
-                    </svg>
+                    <img src="recursos/logos/TheWhiskeyHOuseLogo.png" alt="TheWhiskeyHOuseLogo" class="mainLogo">
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Products</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Sales</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -43,36 +41,40 @@
             </div>
         </div>
     </header>
-    <div class=" position-absolute banner-verify-age" tabindex="-1" role="dialog" id="modalChoice">
+   <!--  <div class=" position-absolute banner-verify-age" tabindex="-1" role="dialog" id="modalChoice">
         <div class="modal-dialog" role="document">
-          <div class="modal-content rounded-3 shadow">
-            <div class="modal-body p-4 text-center">
-              <h5 class="mb-0">BEFORE CONTINUE</h5>
-              <p class="mb-0">We must verify your age. Are you 18 years old or older?</p>
+            <div class="modal-content rounded-3 shadow">
+                <div class="modal-body p-4 text-center">
+                    <h5 class="mb-0">BEFORE CONTINUE</h5>
+                    <p class="mb-0">We must verify your age. Are you 18 years old or older?</p>
+                </div>
+                <div class="modal-footer flex-nowrap p-0">
+                    <button type="button"
+                        class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end">Yes, I
+                        am</button>
+                    <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
+                        data-bs-dismiss="modal">No, I'm not </button>
+                </div>
             </div>
-            <div class="modal-footer flex-nowrap p-0">
-              <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end">Yes, I am</button>
-              <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal">No, I'm not </button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div> -->
     <main>
-        <div class="container col-xxl-8 px-4 py-5">
+        <div class="container-fluid col-xxl-8 px-4 ">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                 <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
-                        width="700" height="500" loading="lazy">
+                    <img src="recursos/imagenes/jackDanielsGlass.jpg" class="d-block mx-lg-auto img-fluid"
+                        alt="Bootstrap Themes" width="700" height="500" loading="lazy">
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image
+                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">¡Los Mejores Whiskeys en un solo lugar!
                     </h1>
-                    <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                        world’s most popular front-end open source toolkit, featuring Sass variables and mixins,
-                        responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                    <p class="lead">
+                        Jack Daniel's es un icónico whiskey estadounidense conocido por su suavidad y sabor equilibrado.
+                        Destilado y envejecido en Tennessee, ofrece notas de caramelo, vainilla y nueces tostadas. El
+                        Old No. 7 es su expresión más famosa. Ideal para quienes buscan calidad y tradición en cada
+                        sorbo.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@
 
 
 
-  <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script> -->
     <script src="js/main.js"></script>
