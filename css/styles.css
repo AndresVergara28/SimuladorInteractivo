@@ -1,18 +1,39 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+.age-verification-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.age-verification-alert{
+    border: 1px solid gray;
+    border-radius: 20px;
+}
 
-header{
+.botton-legal-mark{
+    padding-top: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
+.hero-product {
+    background-color: yellow;
+}
+
+header {
     background-color: black;
 }
 
-.mainLogo{
+.mainLogo {
     width: 10rem;
 }
 
-.banner-verify-age{
+.banner-verify-age {
     top: 25vh;
     left: 50vw;
     border-radius: 12px;
