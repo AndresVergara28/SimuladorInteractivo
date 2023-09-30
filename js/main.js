@@ -1,11 +1,12 @@
-/* let dia=parseInt(prompt("Ingrese el numero del dia en que nació: ")); 
-let mes=parseInt(prompt("Ingrese el numero del mes en que nació: ")); 
-let año=parseInt(prompt("Ingrese el numero del año en que nació: ")); */
-
-/* PARA MEJOR EXPERIENCIA SE RECOMIENDA ACTUALIZAR LOS VALORES */
 const añoActual = 2023;
 const mesActual = 9;
 const diaActual = 24;
+
+// const messageAlertSpan=document.querySelector('#messageAlertSpan');
+
+
+/* BOTTONES */
+
 
 function verificarEligibilidad() {
     alert('El expendido de bebidas embriagantes a menores de edad está prohibido, debemos verificar tu edad. Click en aceptar para continuar:');
