@@ -1,0 +1,71 @@
+header {
+    background-color: $color-black;
+
+    .header-top {
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+
+        .left-side-header-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .logo-cotainer {
+                a {
+                    .mainLogo {
+                        height: 25vh;
+
+                    }
+                }
+
+            }
+
+            .navigation-container {
+                font-size: $large-size*1.2;
+
+                nav {
+                    ul {
+                        li {
+                            a{
+                                color: $color-naranja-principal;
+
+                            }
+
+                            a:hover{
+                                color: $color-white
+                                ;
+                            }
+                            
+                            
+
+                            
+
+                        }
+                    }
+
+                }
+            }
+
+
+
+
+        }
+
+        .right-side-header-container {
+            display: flex;
+
+        }
+
+
+
+
+    }
+
+    .header-bottom{
+        background-color: $color-gris-principal;
+    }
+
+}
