@@ -1,6 +1,15 @@
 const carritoCompras = [];
 
 
+
+
+btnCalcularEdad.addEventListener('click',calculaEdad)
+
+function calculaEdad(name,apellido,edad) {
+    console.log(inpNombre.value);
+    console.log(inpApellido.value);    
+}
+
 function verificarEdad() {
     let fechaNacimiento = new Date(prompt('Por Favor digita tu fecha de nacimiento en el formato (aaaa-mm-dd):'));
     let isMayorEdad = false;
@@ -82,9 +91,7 @@ whiskeys.push(new Producto(7, "Whiskey", 'Buchanas', 'Red Seal', '750 ml', 80000
 
 
 
-verificarEdad();
-mostrarCatalogo();
-finalizarPedido();
+
 
 
 

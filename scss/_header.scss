@@ -1,71 +1,60 @@
 header {
-    background-color: $color-black;
-
-    .header-top {
-        height: 20vh;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-
-        .left-side-header-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-
-            .logo-cotainer {
-                a {
-                    .mainLogo {
-                        height: 25vh;
-
-                    }
-                }
-
-            }
-
-            .navigation-container {
-                font-size: $large-size*1.2;
-
-                nav {
-                    ul {
-                        li {
-                            a{
-                                color: $color-naranja-principal;
-
-                            }
-
-                            a:hover{
-                                color: $color-white
-                                ;
-                            }
-                            
-                            
-
-                            
-
-                        }
-                    }
-
-                }
-            }
-
-
-
-
-        }
-
-        .right-side-header-container {
-            display: flex;
-
-        }
-
-
-
-
+  border: dashed $color-gris-principal 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  a {
+    text-decoration: none;
+    h1 {
+      color: $color-white;
+      text-shadow: 2px 2px 2px $color-black;
+      font-size: 5rem;
+      font-weight: bolder;
+      padding: 1rem;
+      text-transform: uppercase;
+      &:hover {
+        color: $color-amarillo-principal;
+        text-shadow: 2px 2px 2px $color-white;
+      }
     }
+  }
 
-    .header-bottom{
-        background-color: $color-gris-principal;
+  nav {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 0;
+      text-align: center;
+
+      li {
+        border: 1px $color-white solid;
+        background-color: $color-amarillo-principal;
+
+        text-decoration: none;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        a {
+          color: $color-black;
+          font-weight: bolder;
+    
+        }
+      }
     }
+  }
+}
 
+@media screen and (max-width: 992px) {
+  header {
+    a {
+      h1 {
+        display: none;
+      }
+    }
+  }
 }
