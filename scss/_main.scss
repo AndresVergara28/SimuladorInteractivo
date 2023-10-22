@@ -1,66 +1,74 @@
 .main-section {
-  .row {
-    div {
-      .box-main-container {
-        border: 5px $color-gris-secundario dotted;
-        background-color: white;
-        border-radius: 15px;
-        padding-bottom: 2rem;
-        .box-header {
-          text-transform: uppercase;
-          color: $color-gris-secundario;
-          padding:30px 0;
-          h2 {
-            font-weight: bolder;
-            margin: 0;
+  margin-top: 5rem;
+  .main-section-container {
+    .main-header {
+      .box-style {
+        padding: 1.5rem 0;
+        text-align: center;
+        h2 {
+          font-size: $titulo;
+        }
+      }
+    }
+
+    .content-left {
+      .box-style{
+        padding: 2rem;
+        h3{
+          font-size: $subtitulo;
+        }
+        p{
+          font-size: $parrafo;
+        }
+        h6 {
+          font-size: $parrafo
+        }
+      }
+    }
+    .content-rigth {
+      .box-style{
+        padding: 2rem;
+        h3{
+          font-size: $subtitulo;
+        }
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
+          .label {
+            span{
+              font-size: $parrafo;
+            }
+            input {
+              margin-left: 1rem;
+              padding: 0.8rem 1.2rem;
+              font-size: $parrafo;
+              border-radius: 1rem;
+            }
           }
         }
-        .box-content-container {
-          .box-content-left {
-            padding: 12px;
-            border-radius: 12px;
-            text-align: left;
+        .verificar-edad-section {
+          .button-verificar {
+            padding: 0.5rem 2rem;
+            font-size: $parrafo;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 1rem;
           }
-
-
-          .box-content-rigth {
-            padding: 12px;
-            border-radius: 12px;
-            text-align: left;
-            .form {
-              display: flex;
-              flex-direction: column;
-              justify-content: space-evenly;
-              align-items: flex-start;
-              gap: 12px;
-
-              .label {
-                input {
-                  border-radius: 12px;
-                  padding: 4px;
-                }
-              }
-
-              .verificar-edad-section{
-                .button-verificar {
-                  border-radius: 12px;
-                  padding: 12px;
-                  background-color: black;
-                  color: white;
-                }
-
-                .output-verificar{
-                  margin-left: 12px;
-                }
-
-
-
-              }
-            }
-
+          .output-verificar{
+            padding: 0.5rem 2rem;
+            border-radius: 1rem;
+            font-size: $parrafo;
+            text-transform: uppercase;
           }
         }
       }
     }
   }
+}
+
+.box-style {
+  background-color: $color-white;
+  border-radius: 1rem;
+  border: dashed $color-gris-principal 2px;
 }

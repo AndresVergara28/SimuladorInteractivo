@@ -17,121 +17,68 @@
 </head>
 
 <body>
-    <header>
-        <a href="../index.html">
-            <h1 class="text-center">Simulador interactivo</h1>
-        </a>
-        <nav class="container-fluid">
-            <ul class="row p-0 m-0">
-                <li class="col-lg-3 col-md-6 col-sm-12"><a href="verificarEdad.html">Verificar Edad</a></li>
-
-                <li class="col-lg-3 col-md-6 col-sm-12"><a href="analisisSalarial.html">Analisis Salarial</a></li>
-                <li class="col-lg-3 col-md-6 col-sm-12"><a href="carritoCompras.html">Carrito de Compras</a></li>
-
-
+    <header class="container-fluid">
+        <div class="header-left">
+            <a href="../index.html">
+                <img src="../recursos/iconos/calculator-fill.svg" alt="iconoPrincipal">
+                <h1>
+                    Simulador interactivo
+                </h1>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="verificarEdad.html">Verificar Edad</a></li>
+                <li><a href="analisisSalarial.html">Analisis Salarial</a></li>
+                <li><a href="carritoCompras.html">Carrito de Compras</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container over text-center main-section py-5">
-        <div class="row">
-            <div class="col-12">
-                <div class="px-4 box-main-container container">
-                    <div class="box-header">
-                        <h2>Verificar Edad</h2>
-
-                    </div>
-                    <div class="row box-content-container">
-
-                        <div class="col-lg-6 col-md-12 col-sm-12 box-content-left border">
-                            <h3>Descripción</h3>
-                            <p>El Verificador de Edad es una herramienta sencilla que te ayuda a saber si eres mayor de
-                                edad. Solo necesitas ingresar tu nombre, apellido y fecha de nacimiento, y en segundos,
-                                el verificador te dirá si has alcanzado la mayoría de edad. Es útil para comprobar si
-                                cumples con los requisitos de edad en diferentes situaciones, como compras o
-                                inscripciones. </p>
-                            <h6>¡Descubre si eres mayor de edad con un solo clic!</h6>
-
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 box-content-rigth border">
-                            <h3>Simulador</h3>
-                            <form action="/" class="form">
-                                <label for="nombre" class="label">
-                                    <span>Nombre: </span>
-                                    <input type="text" name="nombre" id="nombre" placeholder="Nombre"
-                                        autocomplete="name">
-                                </label>
-                                <label for="apellido" class="label">
-                                    <span>Apellido: </span>
-                                    <input type="text" name="apellido" id="apellido" placeholder="Apellido"
-                                        autocomplete="name">
-                                </label>
-                                <label for="nacimiento" class="label">
-                                    <span>Fecha de nacimiento: </span>
-                                    <input type="datetime-local" name="nacimiento" id="nacimiento"
-                                        autocomplete="country">
-                                </label>
-                                <div class="verificar-edad-section">
-                                    <button class="button-verificar" id="verificarEdadButton">Verificar Edad: </button>
-
-                                    <output class="output-verificar" id="verificarEdadOutput">EJEMPLO</output>
-
-                                </div>
-                            </form>
-
-                            <!--         <form action="">
-                                <label for="nombre">
-                                    <span>Cual es tu nombre</span>
-                                    <input type="text" id="nombre" placeholder="Nombre Completo">
-                                </label>
-                                <label for="inicio-platzi">
-                                    <span>¿Que dia comenzaste en platzi?</span>
-                                    <input type="date" id="inicio-platzi">
-                                </label>
-                                <label for="horario">
-                                    <span>¿Que horario estudias?</span>
-                                    <input type="time" id="horario">
-                                </label>
-                            </form>
-
-                            <form action="">
-                                <label for="hora">
-                                    <span>Hora</span>
-                                    <input type="time" name="hora" id="hora">
-                                </label>
-                                <label for="dia">
-                                    <span>Dia</span>
-                                    <input type="date" name="dia" id="dia">
-                                </label>
-                                <label for="semana">
-                                    <span>Semana</span>
-                                    <input type="week" name="semana" id="semana">
-                                </label>
-                                <label for="mes">
-                                    <span>Mes</span>
-                                    <input type="month" name="mes" id="mes">
-                                </label>
-                                <input type="submit">
-                            </form> -->
-                            <!--      <form action="">
-                                <label for="calendario">
-                                    <span>Calendario</span>
-                                    <input type="datetime-local" id="calendario" name="calendario">
-                                    <input type="submit">
-                                </label>
-                            </form> -->
-                            <!--   <input list="cursos">
-                            <datalist id="cursos">
-                                <option value="javascritp">javascritp</option>
-                                <option value="pyton">pyton</option>
-                                <option value="css">css</option>
-                            </datalist> -->
-
-                        </div>
-                    </div>
+    <main class="container main-section ">
+        <div class="row main-section-container g-3">
+            <div class="col-lg-12 col-md-12 col-sm-12 main-header ">
+                <div class="box-style">
+                    <h2>Verificar Edad</h2>
                 </div>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 content-left ">
+                <div class="box-style">
+                    <h3>Descripción</h3>
+                    <p class="parrafo">El Verificador de Edad es una herramienta sencilla que te ayuda a saber si eres
+                        mayor de
+                        edad. Solo necesitas ingresar tu nombre, apellido y fecha de nacimiento, y en segundos,
+                        el verificador te dirá si has alcanzado la mayoría de edad. Es útil para comprobar si
+                        cumples con los requisitos de edad en diferentes situaciones, como compras o
+                        inscripciones. </p>
+                    <h6>¡Descubre si eres mayor de edad con un solo clic!</h6>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 content-rigth ">
+                <div class="box-style">
 
+                    <h3>Simulador</h3>
+                    <form action="" class="form">
+                        <label for="nombre" class="label">
+                            <span>Nombre: </span>
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="name">
+                        </label>
+                        <label for="apellido" class="label">
+                            <span>Apellido: </span>
+                            <input type="text" name="apellido" id="apellido" placeholder="Apellido" autocomplete="name">
+                        </label>
+                        <label for="nacimiento" class="label">
+                            <span>Fecha de nacimiento: </span>
+                            <input type="datetime-local" name="nacimiento" id="nacimiento" autocomplete="country">
+                        </label>
+                        <div class="verificar-edad-section">
+                            <button class="button-verificar" id="verificarEdadButton">Verificar Edad</button>
+                            <output class="output-verificar" id="verificarEdadOutput">EJEMPLO</output>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
 
     </main>

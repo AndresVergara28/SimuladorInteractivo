@@ -1,60 +1,86 @@
 header {
+  position: sticky;
+  background-color: $color-gris-secundario;
+  padding: $md-size;
   border: dashed $color-gris-principal 2px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  a {
-    text-decoration: none;
-    h1 {
-      color: $color-white;
-      text-shadow: 2px 2px 2px $color-black;
-      font-size: 5rem;
-      font-weight: bolder;
-      padding: 1rem;
-      text-transform: uppercase;
+  height: 15vh;
+
+  .header-left {
+    a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $xsm-size;
+      padding: $sm-size $xlg-size;
+      img {
+        width: $xxlg-size;
+      }
+      h1 {
+        font-size: $xxlg-size;
+        color: $color-black;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-shadow: 1px 1px $color-white;
+      }
+
       &:hover {
-        color: $color-amarillo-principal;
-        text-shadow: 2px 2px 2px $color-white;
+        border-radius: $sm-size;
+        background-color: $color-white;
+        border: $xsm-size $color-gris-principal dashed;
       }
     }
   }
-
   nav {
-    width: 100%;
-    padding: 0;
-    margin: 0;
     ul {
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      align-items: center;
       margin: 0;
-      text-align: center;
-
+      gap: $sm-size;
       li {
-        border: 1px $color-white solid;
-        background-color: $color-amarillo-principal;
+        cursor: pointer;
+        display: inline-block;
+        background-color: $color-white;
+        border: $xsm-size $color-gris-principal dashed;
+        border-radius: $sm-size;
+        padding: $sm-size;
 
-        text-decoration: none;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
         a {
+          font-size: $md-size;
           color: $color-black;
-          font-weight: bolder;
-    
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        &:hover {
+          background-color: $color-gris-principal;
+          a{
+            color: $color-white;
+
+          }
+
         }
       }
     }
   }
 }
 
-@media screen and (max-width: 992px) {
+/* tablets */
+
+/* PHONES */
+
+@media screen and (max-width: 996px) {
   header {
-    a {
-      h1 {
-        display: none;
+    .header-left {
+      a {
+        h1 {
+          display: none;
+        }
       }
     }
   }
 }
+

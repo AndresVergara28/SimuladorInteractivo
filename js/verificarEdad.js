@@ -8,7 +8,8 @@ console.log(inpNombre);
 console.dir(inpApellido);
 
 btnCalcularEdad.addEventListener('click',calculaEdad)
-function calculaEdad() {
+function calculaEdad(e) {
+    e.preventDefault();
     outEdad.innerHTML='Hola';
     
 }
