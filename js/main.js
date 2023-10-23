@@ -3,29 +3,14 @@ const carritoCompras = [];
 
 
 
-btnCalcularEdad.addEventListener('click',calculaEdad)
+/* btnCalcularEdad.addEventListener('click',calculaEdad)
 
 function calculaEdad(name,apellido,edad) {
     console.log(inpNombre.value);
     console.log(inpApellido.value);    
 }
+ */
 
-function verificarEdad() {
-    let fechaNacimiento = new Date(prompt('Por Favor digita tu fecha de nacimiento en el formato (aaaa-mm-dd):'));
-    let isMayorEdad = false;
-    let diferencia;
-    while (isMayorEdad === false) {
-        diferencia = (new Date() - fechaNacimiento) / (1000 * 60 * 60 * 24 * 365);
-        if (diferencia > 18) {
-            isMayorEdad = true;
-        } else {
-            fechaNacimiento = new Date(prompt('Por Favor digitala nuevamente (aaaa-mm-dd):'));
-        }
-    }
-
-
-    return console.log('Tu fecha de nacimiento es: ' + (fechaNacimiento.getDate() + 1) + '/' + (fechaNacimiento.getMonth() + 1) + '/' + (fechaNacimiento.getFullYear()) + ' por tanto tienes ' + Math.floor(diferencia)) + 'años';
-}
 
 function mostrarCatalogo() {
     for (const whiskey of whiskeys) {

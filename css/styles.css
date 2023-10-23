@@ -137,10 +137,12 @@ header nav ul li:hover a {
   border-radius: 1rem;
 }
 .main-section .main-section-container .content-rigth .box-style .verificar-edad-section .output-verificar {
+  width: 100%;
+  border: 2px dashed #212529;
   padding: 0.5rem 2rem;
   border-radius: 1rem;
   font-size: 1.6rem;
-  text-transform: uppercase;
+  margin: 1rem 0rem;
 }
 
 .box-style {

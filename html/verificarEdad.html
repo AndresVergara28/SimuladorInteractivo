@@ -61,19 +61,23 @@
                     <form action="" class="form">
                         <label for="nombre" class="label">
                             <span>Nombre: </span>
-                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="name">
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="cc-given-name">
                         </label>
                         <label for="apellido" class="label">
                             <span>Apellido: </span>
-                            <input type="text" name="apellido" id="apellido" placeholder="Apellido" autocomplete="name">
+                            <input type="text" name="apellido" id="apellido" placeholder="Apellido" autocomplete="family-name">
                         </label>
                         <label for="nacimiento" class="label">
                             <span>Fecha de nacimiento: </span>
-                            <input type="datetime-local" name="nacimiento" id="nacimiento" autocomplete="country">
+                            <input type="date" name="nacimiento" id="nacimiento" autocomplete="bday">
                         </label>
+
+
+
                         <div class="verificar-edad-section">
+                            <output class="output-verificar" id="verificarEdadOutput" aria-placeholder="Aquí se arrojará el resultado"></output>
                             <button class="button-verificar" id="verificarEdadButton">Verificar Edad</button>
-                            <output class="output-verificar" id="verificarEdadOutput">EJEMPLO</output>
+                            <button class="button-verificar" id="">Limpiar</button>
                         </div>
                     </form>
 

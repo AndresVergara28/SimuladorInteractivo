@@ -56,10 +56,13 @@
             border-radius: 1rem;
           }
           .output-verificar{
+            width: 100%;
+            border: 2px dashed $color-gris-principal;
             padding: 0.5rem 2rem;
             border-radius: 1rem;
             font-size: $parrafo;
-            text-transform: uppercase;
+            margin: 1rem 0rem;
+           
           }
         }
       }
