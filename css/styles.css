@@ -167,7 +167,8 @@ header nav .mobile-menu .mobile-menu-list .mobile-menu-list-item:hover a {
   text-align: center;
   font-size: 1.6rem;
 }
-.main-section .main-section-container .content-center {
+.main-section .main-section-container .content-center .box-style {
+  padding: 2rem;
   background-color: yellow;
 }
 .main-section .main-section-container .content-rigth .box-style {

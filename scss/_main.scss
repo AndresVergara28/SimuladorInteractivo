@@ -29,7 +29,11 @@
       }
     }
     .content-center {
-      background-color: yellow;
+      .box-style{
+        padding: 2rem;
+        background-color: yellow;
+
+      }
     }
     .content-rigth {
       .box-style{
