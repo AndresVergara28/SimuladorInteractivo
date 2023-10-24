@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <header>
         <div class="header-left">
             <a href="../index.html">
                 <img src="../recursos/iconos/calculator-fill.svg" alt="iconoPrincipal">
@@ -26,12 +26,24 @@
                 </h1>
             </a>
         </div>
+
         <nav>
-            <ul>
+            <ul class="desktop-nav">
                 <li><a href="verificarEdad.html">Verificar Edad</a></li>
-                <li><a href="analisisSalarial.html">Analisis Salarial</a></li>
                 <li><a href="carritoCompras.html">Carrito de Compras</a></li>
+                <li><a href="analisisSalarial.html">Analisis Salarial</a></li>
             </ul>
+
+            <img src="../recursos/iconos/icon_menu.svg" alt="menu" class="menu">
+
+            <div class="mobile-menu inactive">
+                <ul class="mobile-menu-list">
+                    <li class="mobile-menu-list-item"><a href="verificarEdad.html">Verificar Edad</a></li>
+                    <li class="mobile-menu-list-item"><a href="carritoCompras.html">Carrito de Compras</a></li>
+                    <li class="mobile-menu-list-item"><a href="analisisSalarial.html">Analisis Salarial</a></li>
+                </ul>
+            </div>
+
         </nav>
     </header>
 
@@ -61,11 +73,13 @@
                     <form action="" class="form">
                         <label for="nombre" class="label">
                             <span>Nombre: </span>
-                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="cc-given-name">
+                            <input type="text" name="nombre" id="nombre" placeholder="Nombre"
+                                autocomplete="cc-given-name">
                         </label>
                         <label for="apellido" class="label">
                             <span>Apellido: </span>
-                            <input type="text" name="apellido" id="apellido" placeholder="Apellido" autocomplete="family-name">
+                            <input type="text" name="apellido" id="apellido" placeholder="Apellido"
+                                autocomplete="family-name">
                         </label>
                         <label for="nacimiento" class="label">
                             <span>Fecha de nacimiento: </span>
@@ -75,7 +89,8 @@
 
 
                         <div class="verificar-edad-section">
-                            <output class="output-verificar" id="verificarEdadOutput" aria-placeholder="Aquí se arrojará el resultado"></output>
+                            <output class="output-verificar" id="verificarEdadOutput"
+                                aria-placeholder="Aquí se arrojará el resultado"></output>
                             <button class="button-verificar" id="verificarEdadButton">Verificar Edad</button>
                             <button class="button-verificar" id="">Limpiar</button>
                         </div>
@@ -93,6 +108,7 @@
         crossorigin="anonymous"></script>
     <script src="../js/platziMath.js"></script>
     <script src="../js/verificarEdad.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 

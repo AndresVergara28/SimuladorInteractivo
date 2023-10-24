@@ -1,5 +1,5 @@
 .main-section {
-  margin-top: 5rem;
+  margin-top: 2rem;
   .main-section-container {
     .main-header {
       .box-style {
@@ -11,19 +11,25 @@
       }
     }
 
-    .content-left {
+    .content-left, .main-descripción {
       .box-style{
         padding: 2rem;
         h3{
+          text-align: center;
           font-size: $subtitulo;
         }
         p{
+          text-align: center;
           font-size: $parrafo;
         }
         h6 {
+          text-align: center;
           font-size: $parrafo
         }
       }
+    }
+    .content-center {
+      background-color: yellow;
     }
     .content-rigth {
       .box-style{

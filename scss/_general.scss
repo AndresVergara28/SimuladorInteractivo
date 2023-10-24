@@ -12,6 +12,8 @@ body {
   background-color: $color-amarillo-principal;
 }
 
-.parrafo {
-  font-size: $md-size;
+.inactive{
+  display: none;
 }
+
+

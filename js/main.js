@@ -1,4 +1,12 @@
 const carritoCompras = [];
+const menuBtn = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu')
+
+menuBtn.addEventListener('click',toggleMobileMenu)
+
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle('inactive');
+}
 
 
 
