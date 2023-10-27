@@ -70,20 +70,20 @@
                 <div class="box-style">
 
                     <h3>Simulador</h3>
-                    <form action="" class="form">
+                    <form action="" class="form" id="form">
                         <label for="nombre" class="label">
                             <span>Nombre: </span>
                             <input type="text" name="nombre" id="nombre" placeholder="Nombre"
-                                autocomplete="cc-given-name">
+                                autocomplete="cc-given-name" required>
                         </label>
                         <label for="apellido" class="label">
                             <span>Apellido: </span>
                             <input type="text" name="apellido" id="apellido" placeholder="Apellido"
-                                autocomplete="family-name">
+                                autocomplete="family-name" required>
                         </label>
                         <label for="nacimiento" class="label">
                             <span>Fecha de nacimiento: </span>
-                            <input type="date" name="nacimiento" id="nacimiento" autocomplete="bday">
+                            <input type="date" name="nacimiento" id="nacimiento" autocomplete="bday" required>
                         </label>
 
 
@@ -91,8 +91,8 @@
                         <div class="verificar-edad-section">
                             <output class="output-verificar inactive" id="verificarEdadOutput"
                                 aria-placeholder="Aquí se arrojará el resultado"></output>
-                            <button class="button-verificar" id="verificarEdadButton">Verificar Edad</button>
-                            <button class="button-verificar" id="">Limpiar</button>
+                            <input type="submit" class="button-verificar" id="verificarEdadButton" value="Verificar">
+                            <input type="reset" class="button-limpiar button-verificar" id="resetButton" value="Limpiar">
                         </div>
                     </form>
 
