@@ -75,9 +75,8 @@ header {
       .mobile-menu-list {
         display: flex;
         flex-direction: column;
-        gap: 0.1rem;
-        width: 100%;
-        height: 100%;
+        gap: 0.1rem 0rem;
+        width: 100vw;
         margin: 0;
         padding: 0;
         list-style-type: none;

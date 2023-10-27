@@ -1,3 +1,64 @@
+const productCardContainer = document.querySelector('.products-section-container');
+
+class Producto {
+    constructor(name, secondName, category, volume, price, image) {
+        this.name = name;
+        this.secondName = secondName;
+        this.category = category;
+        this.volume = volume;
+        this.price = parseInt(price);
+        this.image = image;
+    }
+    generarFactura() {
+        alert('Acabas de comprar un ' + this.categoriaProducto + ' de la casa ' + this.marcaProducto + '. Referencia: ' + this.nombreProducto + ' x ' + this.volumenProducto + ' a un valor de: ' + this.precioProducto + ' COP');
+
+    }
+    addToCart() {
+        this.vendido = true;
+        carritoCompras.push(this);
+    }
+}
+
+const whiskeys = [];
+whiskeys.push(new Producto('Buchanas', 'Deluxe 12 años', 'Whiskey', '750 ml', 142500, '../recursos/imagenes/deluxe12años750.png'));
+whiskeys.push(new Producto('Buchanas', 'Deluxe Master', 'Whiskey', '750 ml', 167700, '../recursos/imagenes/deluxeMaster750.png'));
+whiskeys.push(new Producto('Buchanas', 'Two souls', 'Whiskey', '750 ml', 176800, '../recursos/imagenes/deluxeTwoSoul750.png'));
+whiskeys.push(new Producto('Buchanas', 'Deluxe 12 años', 'Whiskey', '1 litro', 211400, '../recursos/imagenes/deluxe12años1000.png'));
+whiskeys.push(new Producto('Buchanas', 'Deluxe Master', '1 litro', 'Whiskey', 181500, '../recursos/imagenes/deluxeMaster1000.png'));
+whiskeys.push(new Producto('Buchanas', 'Special reserve', 'Whiskey', '750 ml', 345100, '../recursos/imagenes/specialReserve750.png'));
+whiskeys.push(new Producto('Buchanas', 'Deluxe 12 años', 'Whiskey', '375 ml', 82000, '../recursos/imagenes/deluxe12años375.png'));
+whiskeys.push(new Producto('Buchanas', 'Red Seal', '750 ml', 'Whiskey', 800000, '../recursos/imagenes/redSealBlended750.png'));
+
+
+function renderProducts(whiskeys) {
+    for (const whiskey of whiskeys) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML =
+            `
+        <div class="product-card-image">
+                <img src=${whiskey.image} alt="" class="product-image">
+        </div>
+        <div class="product-card-information">
+                <h3 class="product-name">${whiskey.name}</h3>
+                <h3 class="product-second-name">${whiskey.secondName}</h3>
+                <h4 class="product-category">${whiskey.category}</h4>
+                <p class="product-volume">${whiskey.volume}</p>
+                <p class="product-price">${whiskey.price} COP</p>
+        </div>
+        <img src="../recursos/iconos/bt_add_to_cart.svg" alt="Añadir al carrito logo" class="add-to-card-button">
+        
+        
+    
+        `
+
+
+
+        productCardContainer.appendChild(productCard);
+    }
+}
+
+renderProducts(whiskeys);
 
 function mostrarCatalogo() {
     for (const whiskey of whiskeys) {
@@ -25,38 +86,6 @@ function finalizarPedido() {
         console.log(item);
     }
 
-    console.log('El total de su pedido seria: '+ resultadoReduce + ' COP');
-}   
-
-class Producto {
-    constructor(codigoProducto, categoriaProducto, marcaProducto, nombreProducto, volumenProducto, precioProducto) {
-        this.codigoProducto = codigoProducto;
-        this.categoriaProducto = categoriaProducto.toUpperCase();
-        this.marcaProducto = marcaProducto.toUpperCase();
-        this.nombreProducto = nombreProducto.toUpperCase();
-        this.volumenProducto = volumenProducto;
-        this.precioProducto = parseInt(precioProducto);
-        this.vendido = false;
-    }
-
-
-    generarFactura() {
-        alert('Acabas de comprar un ' + this.categoriaProducto + ' de la casa ' + this.marcaProducto + '. Referencia: ' + this.nombreProducto + ' x ' + this.volumenProducto + ' a un valor de: ' + this.precioProducto + ' COP');
-
-    }
-    addToCart() {
-        this.vendido = true;
-        carritoCompras.push(this);
-    }
+    console.log('El total de su pedido seria: ' + resultadoReduce + ' COP');
 }
 
-const whiskeys = [];
-
-whiskeys.push(new Producto(0, "Whiskey", 'Buchanas', 'Deluxe 12 años', '750 ml', 142500));
-whiskeys.push(new Producto(1, "Whiskey", 'Buchanas', 'Master', '750 ml', 167700));
-whiskeys.push(new Producto(2, "Whiskey", 'Buchanas', 'Two souls', '750 ml', 176800));
-whiskeys.push(new Producto(3, "Whiskey", 'Buchanas', 'Deluxe 12 años', '1 litro', 211400));
-whiskeys.push(new Producto(4, "Whiskey", 'Buchanas', 'Master', '1 litro', 181500));
-whiskeys.push(new Producto(5, "Whiskey", 'Buchanas', 'Special reserve', '750 ml', 345100));
-whiskeys.push(new Producto(6, "Whiskey", 'Buchanas', 'Deluxe 12 años', '375 ml', 82000));
-whiskeys.push(new Producto(7, "Whiskey", 'Buchanas', 'Red Seal', '750 ml', 800000));

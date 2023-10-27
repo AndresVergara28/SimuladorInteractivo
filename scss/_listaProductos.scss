@@ -1,0 +1,106 @@
+/* 
+ <div 
+ class="product-card">
+              <div class="product-card-image">
+                <img src="../recursos/imagenes/deluxe12años750.png" alt="" class="product-image">
+              </div>
+              <div class="product-card-information">
+                <h3 class="product-name">Whiskey</h3>
+                <p class="product-volume">750ml</p>
+                <p class="product-price">150.000$</p>
+              </div>
+              <img src="../recursos/iconos/icon_menu.svg" alt="Añadir al carrito logo" class="add-to-card-button">
+            </div>
+
+*/
+.content-products {
+  .box-style {
+    padding: 1.5rem 1rem;
+    h3 {
+      text-align: center;
+      font-size: $titulo;
+      text-transform: capitalize;
+      padding-bottom: 1rem;
+    }
+    .products-section-container{
+        .product-card{
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: $color-gris-secundario 1px dotted;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            .product-card-image{
+                img{
+                    width: 12rem;
+                }
+            }
+            .product-card-information{
+                padding: 1rem 1rem 1rem 0.5rem;
+                .product-name{
+                    text-align: left;
+                    padding: 0;
+                    margin: 0;
+                    font-size: $parrafo;
+                    font-weight: bold;
+                    color: $color-gris-principal;
+                }
+                .product-second-name{
+                    text-align: left;
+                    padding: 0;
+                    margin: 0;
+                    font-size: $parrafo;
+                    font-weight: bold;
+                    color: $color-gris-principal; 
+                }
+                .product-category{
+                    padding: 0;
+                    margin: 0;
+                    font-size: $parrafo;
+                    color: $color-gris-principal;
+
+                }
+                .product-volume{
+                    padding: 0;
+                    margin: 0;
+                    font-size: $parrafo;
+                    color: $color-gris-secundario;
+                }
+                .product-price{
+                    padding: 0;
+                    margin: 0;
+                    font-size: $parrafo;
+                    color: $color-gris-secundario;
+                }
+            }
+            .add-to-card-button{
+                cursor: pointer;
+                position: absolute;
+                right: 1rem;
+                width: 5.2rem;
+            }
+
+            &:hover{
+                background-color: $color-gris-secundario;
+                .product-card-information{
+                    .product-name{
+                        color: $color-white;
+                    }
+                    .product-second-name{
+                        color: $color-white;
+                    }
+                    .product-category{
+                        color: $color-white;
+                    }
+                    .product-volume{
+                        color: $color-white;
+                    }
+                    .product-price{
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+  }
+}
