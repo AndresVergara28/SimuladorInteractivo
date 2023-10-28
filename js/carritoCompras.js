@@ -12,7 +12,7 @@ class Producto {
     }
 
     addToCart(cod) {
-        const isThisInCart = verificarSiExiste(cod);
+        /* const isThisInCart = verificarSiExiste(cod);
 
         function verificarSiExiste(id) {
             const resultadoBuscarEnCarrito = carritoCompras.find((el) => el.codigo === id);
@@ -24,7 +24,7 @@ class Producto {
         }
 
         if (isThisInCart) {
-            console.log('ya existo');
+            console.log((carritoCompras.find((el) => el.codigo === id)).count);
             return
 
         } else {
@@ -40,29 +40,14 @@ class Producto {
                 total: this.price,
             });
             renderizarEnCarrito(carritoCompras[id]);
-        }
-
-
-
+        } */
         /*   function verificarSiExiste(obj) {
               const isThisInCart = carritoCompras.find((el)=el.index === obj.index);
-  
               console.log(isThisInCart);
           }
-  
           verificarSiExiste(this); */
-
-
-
-
-
         /* carritoCompras.push(this); */
-
-
-
         /*  renderizarEnCarrito(this); */
-
-
         console.log(carritoCompras);
     }
 }
@@ -78,7 +63,6 @@ whiskeys.push(new Producto(6, 'Buchanas', 'Deluxe 12 años', 'Whiskey', '375 ml'
 whiskeys.push(new Producto(7, 'Buchanas', 'Red Seal', '750 ml', 'Whiskey', 800000, '../recursos/imagenes/redSealBlended750.png'));
 
 const carritoCompras = [];
-
 
 function renderProducts(whiskeys) {
     for (const whiskey of whiskeys) {
@@ -107,13 +91,62 @@ function renderProducts(whiskeys) {
     }
 }
 
+function addToContainerCart(e) {
+    const codigo = parseInt(e.target.id);
+    /* renderizarEnCarrito(arr); */
+    const isThisInCart = verificarSiExiste(codigo);
+    function verificarSiExiste(id) {
+        const resultadoBuscarEnCarrito = carritoCompras.find((el) => el.codigo === id);
+        if (resultadoBuscarEnCarrito) {
+            return true;
+        } else {
+            return false
+        }
+    }
+
+
+    if (!isThisInCart) {
+        const whiskey = whiskeys.find((el) => el.codigo === codigo)
+        const producto = {
+            codigo: whiskey.codigo,
+            name: whiskey.name,
+            secondName: whiskey.secondName,
+            category: whiskey.category,
+            price: whiskey.price,
+            volume: whiskey.volume,
+            image: whiskey.image,
+            count: 1,
+            total: whiskey.price,
+        };
+        carritoCompras.push(producto);
+        renderizarEnCarrito(producto);
+    } else {
+        const whiskey = whiskeys.find((el) => el.codigo === codigo)
+        const position = getIndex(whiskey);
+        function getIndex(producto) {
+            for (let index = 0; index < carritoCompras.length; index++) {
+                const codigo = carritoCompras[index].codigo;
+                if ((codigo === whiskey.codigo)) {
+                    return index;
+                }else{'no conseguimmos nada'}
+            }
+        }
+
+        carritoCompras[position].total += carritoCompras[position].price ; 
+        carritoCompras[position].count++; 
+        const cantidad = carritoCompras[position].count;
+        actualizarDOM(cantidad,codigo);
+        function actualizarDOM(total,codigo) {
+            const totalOut = document.getElementById(`cart_product_${codigo}`);
+            totalOut.innerText = total;
+            
+        }
+        return
+    }
+
+}
+
 function renderizarEnCarrito(el) {
-
-    
-
-    
-
-
     /*    <div class="product-card">
      <div class="product-card-image">
          <img src="../recursos/imagenes/deluxe12años1000.png" alt="">
@@ -200,6 +233,7 @@ function renderizarEnCarrito(el) {
 
     const cantidad = document.createElement('p');
     cantidad.classList.add('cantidad');
+    cantidad.setAttribute('id',`cart_product_${el.codigo}`);
     cantidad.innerText = el.count;
     divSegundoInterno.appendChild(cantidad);
 
@@ -222,38 +256,6 @@ function renderizarEnCarrito(el) {
 
 }
 
-function addToContainerCart(e) {
-    const codigo = parseInt(e.target.id);
-    /* renderizarEnCarrito(arr); */
-    const isThisInCart = verificarSiExiste(codigo);
-    function verificarSiExiste(id) {
-        const resultadoBuscarEnCarrito = carritoCompras.find((el) => el.codigo === id);
-        if (resultadoBuscarEnCarrito) {
-            return true;
-        } else {
-            return false
-        }
-    }
-    if (isThisInCart) {
-        console.log('ya existo');
-        return
-
-    } else {
-        const whiskey = whiskeys.find((el) => el.codigo === codigo)
-        carritoCompras.push({
-            codigo: whiskey.codigo,
-            name: whiskey.name,
-            secondName: whiskey.secondName,
-            category: whiskey.category,
-            price: whiskey.price,
-            volume: whiskey.volume,
-            image: whiskey.image,
-            count: 1,
-            total: whiskey.price,
-        });
-    }
-
-}
 
 
 
