@@ -135,11 +135,13 @@ function addToContainerCart(e) {
         carritoCompras[position].total += carritoCompras[position].price ; 
         carritoCompras[position].count++; 
         const cantidad = carritoCompras[position].count;
-        actualizarDOM(cantidad,codigo);
-        function actualizarDOM(total,codigo) {
-            const totalOut = document.getElementById(`cart_product_${codigo}`);
-            totalOut.innerText = total;
-            
+        const total = carritoCompras[position].total;
+        actualizarDOM(cantidad,total,codigo);
+        function actualizarDOM(quantity,total,codigo) {
+            const quantityOut = document.getElementById(`quantity_product_${codigo}`);
+            const totalOut = document.getElementById(`total_product_${codigo}`);
+            quantityOut.innerText = quantity;
+            totalOut.innerText = total + ' COP';
         }
         return
     }
@@ -216,7 +218,8 @@ function renderizarEnCarrito(el) {
 
     const productPrice = document.createElement('p');
     productPrice.classList.add('product-price');
-    productPrice.innerText = el.price;
+    productPrice.setAttribute('id',`total_product_${el.codigo}`);
+    productPrice.innerText = el.price + ' COP';
     divPrimerInterno.appendChild(productPrice);
 
     /* Creando segundo interno de div class = 'product-card-information-container' */
@@ -233,7 +236,7 @@ function renderizarEnCarrito(el) {
 
     const cantidad = document.createElement('p');
     cantidad.classList.add('cantidad');
-    cantidad.setAttribute('id',`cart_product_${el.codigo}`);
+    cantidad.setAttribute('id',`quantity_product_${el.codigo}`);
     cantidad.innerText = el.count;
     divSegundoInterno.appendChild(cantidad);
 
