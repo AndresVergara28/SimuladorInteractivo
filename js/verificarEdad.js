@@ -5,25 +5,25 @@ const outEdad = document.querySelector('#verificarEdadOutput');
 const btnCalcularEdad = document.querySelector('#verificarEdadButton');
 const form = document.querySelector('#form')
 
-usuarios = [];
+const usuarios = [];
 form.addEventListener('submit', verificar);
 form.addEventListener('reset', limpiar);
 
 function verificar(event) {
     event.preventDefault();
-    let formulario = event.target.children;
-    let infoUsuario = {
+    const formulario = event.target.children;
+    const infoUsuario = {
         nombre: formulario[0].children[1].value,
         apellido: formulario[1].children[1].value,
         fechaNacimiento: formulario[2].children[1].value,
     } 
-    usuarios.push(infoUsuario)
-    let fechaNacimiento = new Date(inpNacimiento.value);
+    usuarios.push(infoUsuario);
+    const fechaNacimiento = new Date(inpNacimiento.value);
+    const diferencia = (new Date() - fechaNacimiento) / (1000 * 60 * 60 * 24 * 365.25);
+    const edad = Math.floor(diferencia);
     let isMayorEdad = false;
-    let diferencia;
+    
     while (isMayorEdad === false) {
-        diferencia = (new Date() - fechaNacimiento) / (1000 * 60 * 60 * 24 * 365.25);
-        let edad = Math.floor(diferencia);
         if (edad >= 18) {
             isMayorEdad = true;
             outEdad.classList.remove('inactive');

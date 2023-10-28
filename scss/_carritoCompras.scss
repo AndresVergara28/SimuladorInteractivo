@@ -1,0 +1,89 @@
+.content-products-sold {
+  .box-style {
+    padding: 1.5rem 1rem;
+    h3 {
+      text-align: center;
+      font-size: $titulo;
+      text-transform: capitalize;
+      padding-bottom: 1rem;
+    }
+    .products-section-container {
+      .product-card {
+        display: flex;
+        border: $color-gris-secundario 1px dotted;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        .product-card-image {
+          img {
+            width: 12rem;
+          }
+        }
+        .product-card-information-container {
+          display: flex;
+          width: 100%;
+          margin-right: 1rem;
+          justify-content: space-between;
+          .product-card-information {
+            padding: 1rem 1rem 1rem 0.5rem;
+            .product-name {
+              text-align: left;
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              font-weight: bold;
+              color: $color-gris-principal;
+            }
+            .product-second-name {
+              text-align: left;
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              font-weight: bold;
+              color: $color-gris-principal;
+            }
+            .product-category {
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              color: $color-gris-principal;
+            }
+            .product-volume {
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              color: $color-gris-secundario;
+            }
+            .product-price {
+              padding: 0;
+              margin: 0;
+              font-size: $parrafo;
+              color: $color-gris-secundario;
+            }
+          }
+          .product-card-modificar {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 1rem;
+            .sumar,
+            .restar {
+                margin: 0;
+              cursor: pointer;
+              width: 4rem;
+              height: 4rem;
+              border-radius: 100%;
+              padding: 1rem;
+              border: white 2px solid;
+              text-align: center;
+              text-justify: center;
+              background-color: #acd9b2;
+              color: $color-white;
+              font-size: $parrafo;
+              font-weight: bolder;
+            }
+          }
+        }
+      }
+    }
+  }
+}
