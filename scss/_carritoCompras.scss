@@ -64,22 +64,56 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            gap: 1rem;
             .sumar,
             .restar {
                 margin: 0;
               cursor: pointer;
-              width: 4rem;
-              height: 4rem;
+              width: 5.2rem;
+              height: 5.2rem;
               border-radius: 100%;
               padding: 1rem;
-              border: white 2px solid;
               text-align: center;
               text-justify: center;
               background-color: #acd9b2;
               color: $color-white;
               font-size: $parrafo;
               font-weight: bolder;
+            }
+            .cantidad{
+              font-size: $parrafo;
+              color: $color-gris-secundario;
+              padding: 0.5rem 1rem;
+              margin-top: 0.5rem;
+            }
+          }
+        }
+
+
+        &:hover{
+          background-color: $color-gris-secundario;
+          .product-card-information-container {
+            .product-card-information {
+              .product-name {
+                color: $color-white;
+              }
+              .product-second-name {
+                color: $color-white;
+              }
+              .product-category {
+                color: $color-white;
+              }
+              .product-volume {
+                color: $color-white;
+              }
+              .product-price {
+                color: $color-white;
+              }
+            }
+            .product-card-modificar {
+              .cantidad{
+                color: $color-white;
+
+              }
             }
           }
         }

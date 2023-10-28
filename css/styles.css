@@ -358,23 +358,48 @@ header nav .mobile-menu .mobile-menu-list .mobile-menu-list-item:hover a {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  gap: 1rem;
 }
 .content-products-sold .box-style .products-section-container .product-card .product-card-information-container .product-card-modificar .sumar,
 .content-products-sold .box-style .products-section-container .product-card .product-card-information-container .product-card-modificar .restar {
   margin: 0;
   cursor: pointer;
-  width: 4rem;
-  height: 4rem;
+  width: 5.2rem;
+  height: 5.2rem;
   border-radius: 100%;
   padding: 1rem;
-  border: white 2px solid;
   text-align: center;
   text-justify: center;
   background-color: #acd9b2;
   color: #ffffff;
   font-size: 1.6rem;
   font-weight: bolder;
+}
+.content-products-sold .box-style .products-section-container .product-card .product-card-information-container .product-card-modificar .cantidad {
+  font-size: 1.6rem;
+  color: #6c757d;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover {
+  background-color: #6c757d;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-information .product-name {
+  color: #ffffff;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-information .product-second-name {
+  color: #ffffff;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-information .product-category {
+  color: #ffffff;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-information .product-volume {
+  color: #ffffff;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-information .product-price {
+  color: #ffffff;
+}
+.content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-modificar .cantidad {
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=styles.css.map */
