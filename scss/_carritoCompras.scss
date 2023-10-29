@@ -119,5 +119,27 @@
         }
       }
     }
+    .total-display-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0.5rem 1rem;
+      background-color: $color-black;
+      width: 100%;
+      color: $color-white;
+      border: $color-gris-secundario 1px dotted;
+      border-radius: 1rem;
+      .total-title{
+        margin: 0;
+        font-size: $parrafo;
+        font-weight: bold;
+      }
+      .total-valor{
+        margin: 0;
+        font-size: $parrafo;
+        font-weight: bold;
+       
+      }
+    }
   }
 }

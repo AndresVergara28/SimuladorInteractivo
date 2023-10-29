@@ -401,5 +401,26 @@ header nav .mobile-menu .mobile-menu-list .mobile-menu-list-item:hover a {
 .content-products-sold .box-style .products-section-container .product-card:hover .product-card-information-container .product-card-modificar .cantidad {
   color: #ffffff;
 }
+.content-products-sold .box-style .total-display-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 1rem;
+  background-color: #000000;
+  width: 100%;
+  color: #ffffff;
+  border: #6c757d 1px dotted;
+  border-radius: 1rem;
+}
+.content-products-sold .box-style .total-display-container .total-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.content-products-sold .box-style .total-display-container .total-valor {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=styles.css.map */

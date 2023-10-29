@@ -1,5 +1,6 @@
 const productCardContainerList = document.querySelector('.products-section-container');
 const productCardContainerCart = document.querySelector('#carrito-de-compras');
+const totalDisplay = document.querySelector('#total_display');
 class Producto {
     constructor(codigo, name, secondName, category, volume, price, image) {
         this.codigo = codigo;
@@ -10,7 +11,6 @@ class Producto {
         this.price = parseInt(price);
         this.image = image;
     }
-
     addToCart(cod) {
         /* const isThisInCart = verificarSiExiste(cod);
 
@@ -90,11 +90,13 @@ function renderProducts(whiskeys) {
         productCard.appendChild(addToCartImg);
     }
 }
+renderProducts(whiskeys);
 
 function addToContainerCart(e) {
     const codigo = parseInt(e.target.id);
     /* renderizarEnCarrito(arr); */
     const isThisInCart = verificarSiExiste(codigo);
+    
     function verificarSiExiste(id) {
         const resultadoBuscarEnCarrito = carritoCompras.find((el) => el.codigo === id);
         if (resultadoBuscarEnCarrito) {
@@ -102,6 +104,17 @@ function addToContainerCart(e) {
         } else {
             return false
         }
+    }
+
+    function actualizarTotal(valor) {
+        totalDisplay.innerText = valor + ' COP';
+    }
+
+    function actualizarDOM(quantity,total,codigo) {
+        const quantityOut = document.getElementById(`quantity_product_${codigo}`);
+        const totalOut = document.getElementById(`total_product_${codigo}`);
+        quantityOut.innerText = quantity;
+        totalOut.innerText = total + ' COP';
     }
 
 
@@ -120,6 +133,8 @@ function addToContainerCart(e) {
         };
         carritoCompras.push(producto);
         renderizarEnCarrito(producto);
+        const totalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        actualizarTotal(totalFactura);
     } else {
         const whiskey = whiskeys.find((el) => el.codigo === codigo)
         const position = getIndex(whiskey);
@@ -131,18 +146,14 @@ function addToContainerCart(e) {
                 }else{'no conseguimmos nada'}
             }
         }
-
         carritoCompras[position].total += carritoCompras[position].price ; 
         carritoCompras[position].count++; 
         const cantidad = carritoCompras[position].count;
         const total = carritoCompras[position].total;
+        const totalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        actualizarTotal(totalFactura);
         actualizarDOM(cantidad,total,codigo);
-        function actualizarDOM(quantity,total,codigo) {
-            const quantityOut = document.getElementById(`quantity_product_${codigo}`);
-            const totalOut = document.getElementById(`total_product_${codigo}`);
-            quantityOut.innerText = quantity;
-            totalOut.innerText = total + ' COP';
-        }
+        
         return
     }
 
@@ -278,5 +289,5 @@ function reducirCantidad(e) {
 }
 
 
-renderProducts(whiskeys);
+
 
