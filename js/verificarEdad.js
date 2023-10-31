@@ -31,7 +31,7 @@ function verificar(event) {
             return
         } else {
             outEdad.classList.remove('inactive');
-            outEdad.innerText =`${infoUsuario.nombre} ${infoUsuario.appelido} tienes ${edad} años por tanto eres Menor de Edad. No puedes navegar`;
+            outEdad.innerText =`${infoUsuario.nombre} ${infoUsuario.apellido} tienes ${edad} años por tanto eres Menor de Edad. No puedes navegar`;
             return
         }
     }

@@ -1,69 +1,4 @@
-const productCardContainerList = document.querySelector('.products-section-container');
-const productCardContainerCart = document.querySelector('#carrito-de-compras');
-const totalDisplay = document.querySelector('#total_display');
-class Producto {
-    constructor(codigo, name, secondName, category, volume, price, image) {
-        this.codigo = codigo;
-        this.name = name;
-        this.secondName = secondName;
-        this.category = category;
-        this.volume = volume;
-        this.price = parseInt(price);
-        this.image = image;
-    }
-    addToCart(cod) {
-        /* const isThisInCart = verificarSiExiste(cod);
-
-        function verificarSiExiste(id) {
-            const resultadoBuscarEnCarrito = carritoCompras.find((el) => el.codigo === id);
-            if (resultadoBuscarEnCarrito) {
-                return true;
-            } else {
-                return false
-            }
-        }
-
-        if (isThisInCart) {
-            console.log((carritoCompras.find((el) => el.codigo === id)).count);
-            return
-
-        } else {
-            carritoCompras.push({
-                codigo: this.codigo,
-                name: this.name,
-                secondName: this.secondName,
-                category: this.category,
-                price: this.price,
-                volume: this.volume,
-                image: this.image,
-                count: 1,
-                total: this.price,
-            });
-            renderizarEnCarrito(carritoCompras[id]);
-        } */
-        /*   function verificarSiExiste(obj) {
-              const isThisInCart = carritoCompras.find((el)=el.index === obj.index);
-              console.log(isThisInCart);
-          }
-          verificarSiExiste(this); */
-        /* carritoCompras.push(this); */
-        /*  renderizarEnCarrito(this); */
-        console.log(carritoCompras);
-    }
-}
-
-const whiskeys = [];
-whiskeys.push(new Producto(0, 'Buchanas', 'Deluxe 12 años', 'Whiskey', '750 ml', 142500, '../recursos/imagenes/deluxe12años750.png'));
-whiskeys.push(new Producto(1, 'Buchanas', 'Deluxe Master', 'Whiskey', '750 ml', 167700, '../recursos/imagenes/deluxeMaster750.png'));
-whiskeys.push(new Producto(2, 'Buchanas', 'Two souls', 'Whiskey', '750 ml', 176800, '../recursos/imagenes/deluxeTwoSoul750.png'));
-whiskeys.push(new Producto(3, 'Buchanas', 'Deluxe 12 años', 'Whiskey', '1 Litro', 211400, '../recursos/imagenes/deluxe12años1000.png'));
-whiskeys.push(new Producto(4, 'Buchanas', 'Deluxe Master', '1 Litro', 'Whiskey', 181500, '../recursos/imagenes/deluxeMaster1000.png'));
-whiskeys.push(new Producto(5, 'Buchanas', 'Special reserve', 'Whiskey', '750 ml', 345100, '../recursos/imagenes/specialReserve750.png'));
-whiskeys.push(new Producto(6, 'Buchanas', 'Deluxe 12 años', 'Whiskey', '375 ml', 82000, '../recursos/imagenes/deluxe12años375.png'));
-whiskeys.push(new Producto(7, 'Buchanas', 'Red Seal', '750 ml', 'Whiskey', 800000, '../recursos/imagenes/redSealBlended750.png'));
-
-const carritoCompras = [];
-
+renderProducts(whiskeys);
 function renderProducts(whiskeys) {
     for (const whiskey of whiskeys) {
         const productCard = document.createElement('div');
@@ -90,7 +25,7 @@ function renderProducts(whiskeys) {
         productCard.appendChild(addToCartImg);
     }
 }
-renderProducts(whiskeys);
+
 
 function actualizarTotal(valor) {
     totalDisplay.innerText = valor + ' COP';
@@ -180,6 +115,7 @@ function renderizarEnCarrito(el) {
 
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
+    productCard.setAttribute('id',`cont_id_${el.codigo}`);
     /* Creando div class= 'product-card-image' */
     const divProductCartImage = document.createElement('div');
     divProductCartImage.classList.add('product-card-image');
@@ -265,7 +201,7 @@ function agregarCantidad(e) {
             const codigo = carritoCompras[index].codigo;
             if ((codigo === item.codigo)) {
                 return index;
-            } else { 'no conseguimmos nada' }
+            } else { 'no conseguimos el codigo' }
         }
     }
 
@@ -288,11 +224,6 @@ function reducirCantidad(e) {
         quantityOut.innerText = quantity;
         totalOut.innerText = total + ' COP';
     }
-
-    e.preventDefault();
-    const codigo = Number((e.target.id).slice(8));
-    const item = carritoCompras.find((el) => el.codigo === codigo);
-    const position = getIndex(item);
     function getIndex(itemAñadido) {
         for (let index = 0; index < carritoCompras.length; index++) {
             const codigo = carritoCompras[index].codigo;
@@ -302,19 +233,36 @@ function reducirCantidad(e) {
         }
     }
 
-    if (carritoCompras[position].count > 1) {
+    e.preventDefault();
+    const codigo = Number((e.target.id).slice(8));
+    const item = carritoCompras.find((el) => el.codigo === codigo);
+    const position = getIndex(item);
+
+
+    if (carritoCompras[position].count > 0) {
         carritoCompras[position].total -= carritoCompras[position].price;
         carritoCompras[position].count--;
-    } else{ console.log('no puedo');}
+
+        if (carritoCompras[position].total == 0) {
+            const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+            const newQuantity = carritoCompras[position].count;
+            const newTotal = carritoCompras[position].total;
+            actualizarCant(newQuantity, newTotal, codigo);
+            actualizarTotal(newTotalFactura);
+            const contenedorInDOm = document.getElementById(`cont_id_${codigo}`);
+            contenedorInDOm.remove();
+            carritoCompras.splice(position,1);
 
 
+        };
+        const newQuantity = carritoCompras[position].count;
+        const newTotal = carritoCompras[position].total;
+        const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        actualizarCant(newQuantity, newTotal, codigo);
+        actualizarTotal(newTotalFactura);
+    } ;
+  
 
-    const newQuantity = carritoCompras[position].count;
-    const newTotal = carritoCompras[position].total;
-    const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-
-    actualizarCant(newQuantity, newTotal, codigo);
-    actualizarTotal(newTotalFactura);
 }
 
 
