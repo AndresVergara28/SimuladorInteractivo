@@ -25,7 +25,14 @@ function renderProducts(whiskeys) {
         productCard.appendChild(addToCartImg);
     }
 }
-
+function getIndex(el) {
+    for (let index = 0; index < carritoCompras.length; index++) {
+        const codigo = carritoCompras[index].codigo;
+        if ((codigo === el.codigo)) {
+            return index;
+        } else { 'no conseguimmos nada' }
+    }
+}
 
 function actualizarTotal(valor) {
     totalDisplay.innerText = valor + ' COP';
@@ -72,21 +79,14 @@ function addToContainerCart(e) {
     } else {
         const whiskey = whiskeys.find((el) => el.codigo === codigo)
         const position = getIndex(whiskey);
-        function getIndex(itemAñadido) {
-            for (let index = 0; index < carritoCompras.length; index++) {
-                const codigo = carritoCompras[index].codigo;
-                if ((codigo === whiskey.codigo)) {
-                    return index;
-                } else { 'no conseguimmos nada' }
-            }
-        }
+       
         carritoCompras[position].total += carritoCompras[position].price;
         carritoCompras[position].count++;
-        const cantidad = carritoCompras[position].count;
-        const total = carritoCompras[position].total;
-        const totalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-        actualizarTotal(totalFactura);
-        actualizarCant(cantidad, total, codigo);
+        const newCantidad = carritoCompras[position].count;
+        const newTotal = carritoCompras[position].total;
+        const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        actualizarTotal(newTotalFactura);
+        actualizarCant(newCantidad, newTotal, codigo);
 
         return
     }
@@ -196,15 +196,7 @@ function agregarCantidad(e) {
     const codigo = Number((e.target.id).slice(8));
     const item = carritoCompras.find((el) => el.codigo === codigo);
     const position = getIndex(item);
-    function getIndex(itemAñadido) {
-        for (let index = 0; index < carritoCompras.length; index++) {
-            const codigo = carritoCompras[index].codigo;
-            if ((codigo === item.codigo)) {
-                return index;
-            } else { 'no conseguimos el codigo' }
-        }
-    }
-
+    
     carritoCompras[position].total += carritoCompras[position].price;
     carritoCompras[position].count++;
 
@@ -224,15 +216,7 @@ function reducirCantidad(e) {
         quantityOut.innerText = quantity;
         totalOut.innerText = total + ' COP';
     }
-    function getIndex(itemAñadido) {
-        for (let index = 0; index < carritoCompras.length; index++) {
-            const codigo = carritoCompras[index].codigo;
-            if ((codigo === item.codigo)) {
-                return index;
-            } else { 'no conseguimmos nada' }
-        }
-    }
-
+  
     e.preventDefault();
     const codigo = Number((e.target.id).slice(8));
     const item = carritoCompras.find((el) => el.codigo === codigo);
