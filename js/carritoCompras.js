@@ -72,7 +72,9 @@ function addToContainerCart(e) {
             count: 1,
             total: whiskey.price,
         };
+
         carritoCompras.push(itemAñadido);
+        localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras));
         renderizarEnCarrito(itemAñadido);
         const totalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
         actualizarTotal(totalFactura);
@@ -82,6 +84,8 @@ function addToContainerCart(e) {
        
         carritoCompras[position].total += carritoCompras[position].price;
         carritoCompras[position].count++;
+        localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras));
+        
         const newCantidad = carritoCompras[position].count;
         const newTotal = carritoCompras[position].total;
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
@@ -204,6 +208,7 @@ function agregarCantidad(e) {
     const newTotal = carritoCompras[position].total;
     const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
 
+    localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras))
     actualizarCant(newQuantity, newTotal, codigo);
     actualizarTotal(newTotalFactura);
 
@@ -236,19 +241,19 @@ function reducirCantidad(e) {
             const contenedorInDOm = document.getElementById(`cont_id_${codigo}`);
             contenedorInDOm.remove();
             carritoCompras.splice(position,1);
-
-
+            localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras))
+            return;
         };
         const newQuantity = carritoCompras[position].count;
         const newTotal = carritoCompras[position].total;
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras))
         actualizarCant(newQuantity, newTotal, codigo);
         actualizarTotal(newTotalFactura);
     } ;
   
 
 }
-
 
 
 
