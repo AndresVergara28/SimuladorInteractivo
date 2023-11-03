@@ -38,6 +38,7 @@ function actualizarTotal(valor) {
     totalDisplay.innerText = valor + ' COP';
 }
 
+
 function addToContainerCart(e) {
     const codigo = parseInt(e.target.id);
     const isThisInCart = verificarSiExiste(codigo);
@@ -74,18 +75,18 @@ function addToContainerCart(e) {
         };
 
         carritoCompras.push(itemAñadido);
-        localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras));
+        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
         renderizarEnCarrito(itemAñadido);
         const totalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
         actualizarTotal(totalFactura);
     } else {
         const whiskey = whiskeys.find((el) => el.codigo === codigo)
         const position = getIndex(whiskey);
-       
+
         carritoCompras[position].total += carritoCompras[position].price;
         carritoCompras[position].count++;
-        localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras));
-        
+        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
+
         const newCantidad = carritoCompras[position].count;
         const newTotal = carritoCompras[position].total;
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
@@ -95,6 +96,14 @@ function addToContainerCart(e) {
         return
     }
 }
+for (let index = 0; index < carritoCompras.length; index++) {
+    const product = carritoCompras[index];
+    renderizarEnCarrito(product);
+    const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+    actualizarTotal(newTotalFactura);
+
+}
+
 
 function renderizarEnCarrito(el) {
     /*    <div class="product-card">
@@ -119,7 +128,7 @@ function renderizarEnCarrito(el) {
 
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-    productCard.setAttribute('id',`cont_id_${el.codigo}`);
+    productCard.setAttribute('id', `cont_id_${el.codigo}`);
     /* Creando div class= 'product-card-image' */
     const divProductCartImage = document.createElement('div');
     divProductCartImage.classList.add('product-card-image');
@@ -156,7 +165,7 @@ function renderizarEnCarrito(el) {
     const productPrice = document.createElement('p');
     productPrice.classList.add('product-price');
     productPrice.setAttribute('id', `total_product_${el.codigo}`);
-    productPrice.innerText = el.price + ' COP';
+    productPrice.innerText = el.total + ' COP';
     divPrimerInterno.appendChild(productPrice);
     /* Creando segundo interno de div class = 'product-card-information-container' */
     const divSegundoInterno = document.createElement('div');
@@ -200,7 +209,7 @@ function agregarCantidad(e) {
     const codigo = Number((e.target.id).slice(8));
     const item = carritoCompras.find((el) => el.codigo === codigo);
     const position = getIndex(item);
-    
+
     carritoCompras[position].total += carritoCompras[position].price;
     carritoCompras[position].count++;
 
@@ -208,7 +217,7 @@ function agregarCantidad(e) {
     const newTotal = carritoCompras[position].total;
     const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
 
-    localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras))
+    localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
     actualizarCant(newQuantity, newTotal, codigo);
     actualizarTotal(newTotalFactura);
 
@@ -221,7 +230,7 @@ function reducirCantidad(e) {
         quantityOut.innerText = quantity;
         totalOut.innerText = total + ' COP';
     }
-  
+
     e.preventDefault();
     const codigo = Number((e.target.id).slice(8));
     const item = carritoCompras.find((el) => el.codigo === codigo);
@@ -240,18 +249,18 @@ function reducirCantidad(e) {
             actualizarTotal(newTotalFactura);
             const contenedorInDOm = document.getElementById(`cont_id_${codigo}`);
             contenedorInDOm.remove();
-            carritoCompras.splice(position,1);
-            localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras))
+            carritoCompras.splice(position, 1);
+            localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
             return;
         };
         const newQuantity = carritoCompras[position].count;
         const newTotal = carritoCompras[position].total;
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-        localStorage.setItem(`carritoCompras`,JSON.stringify(carritoCompras))
+        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
         actualizarCant(newQuantity, newTotal, codigo);
         actualizarTotal(newTotalFactura);
-    } ;
-  
+    };
+
 
 }
 

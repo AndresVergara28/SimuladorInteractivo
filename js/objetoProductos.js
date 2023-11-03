@@ -24,4 +24,5 @@ whiskeys.push(new Producto(6, 'Buchanas', 'Deluxe 12 años', 'Whiskey', '375 ml'
 whiskeys.push(new Producto(7, 'Buchanas', 'Red Seal', '750 ml', 'Whiskey', 800000, '../recursos/imagenes/redSealBlended750.png'));
 
 
-const carritoCompras = [];
+const carritoCompras = JSON.parse(localStorage.carritoCompras);
+
