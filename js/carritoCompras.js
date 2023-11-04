@@ -1,4 +1,6 @@
 renderProducts(whiskeys);
+
+
 function renderProducts(whiskeys) {
     for (const whiskey of whiskeys) {
         const productCard = document.createElement('div');
@@ -25,12 +27,13 @@ function renderProducts(whiskeys) {
         productCard.appendChild(addToCartImg);
     }
 }
+
 function getIndex(el) {
     for (let index = 0; index < carritoCompras.length; index++) {
         const codigo = carritoCompras[index].codigo;
         if ((codigo === el.codigo)) {
             return index;
-        } else { 'no conseguimmos nada' }
+        }
     }
 }
 
@@ -38,30 +41,12 @@ function actualizarTotal(valor) {
     totalDisplay.innerText = valor + ' COP';
 }
 
-
 function addToContainerCart(e) {
     const codigo = parseInt(e.target.id);
-    const isThisInCart = verificarSiExiste(codigo);
-    function verificarSiExiste(id) {
-        const resultadoBuscarEnCarrito = carritoCompras.find((el) => el.codigo === id);
-        if (resultadoBuscarEnCarrito) {
-            return true;
-        } else {
-            return false
-        }
-    }
-    function actualizarTotal(valor) {
-        totalDisplay.innerText = valor + ' COP';
-    }
-    function actualizarCant(quantity, total, codigo) {
-        const quantityOut = document.getElementById(`quantity_product_${codigo}`);
-        const totalOut = document.getElementById(`total_product_${codigo}`);
-        quantityOut.innerText = quantity;
-        totalOut.innerText = total + ' COP';
-    }
+    const isThisInCart = (carritoCompras.find((el) => el.codigo === codigo)) ? true : false;
+    const whiskey = whiskeys.find((el) => el.codigo === codigo);
 
     if (!isThisInCart) {
-        const whiskey = whiskeys.find((el) => el.codigo === codigo)
         const itemAñadido = {
             codigo: whiskey.codigo,
             name: whiskey.name,
@@ -73,37 +58,40 @@ function addToContainerCart(e) {
             count: 1,
             total: whiskey.price,
         };
-
         carritoCompras.push(itemAñadido);
-        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
+        Swal.fire(
+            '¡Añadido al Carrito!',
+            `${itemAñadido.name} ${itemAñadido.secondName} ${itemAñadido.volume}`,
+            'success'
+        );
         renderizarEnCarrito(itemAñadido);
-        const totalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-        actualizarTotal(totalFactura);
+        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
+        const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+        actualizarTotal(newTotalFactura);
     } else {
-        const whiskey = whiskeys.find((el) => el.codigo === codigo)
-        const position = getIndex(whiskey);
 
+
+        const position = getIndex(whiskey);
         carritoCompras[position].total += carritoCompras[position].price;
         carritoCompras[position].count++;
         localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
-
         const newCantidad = carritoCompras[position].count;
         const newTotal = carritoCompras[position].total;
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
         actualizarTotal(newTotalFactura);
         actualizarCant(newCantidad, newTotal, codigo);
-
         return
     }
-}
-for (let index = 0; index < carritoCompras.length; index++) {
-    const product = carritoCompras[index];
-    renderizarEnCarrito(product);
-    const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-    actualizarTotal(newTotalFactura);
+
+    function actualizarCant(quantity, total, codigo) {
+        const quantityOut = document.getElementById(`quantity_product_${codigo}`);
+        const totalOut = document.getElementById(`total_product_${codigo}`);
+        quantityOut.innerText = quantity;
+        totalOut.innerText = total + ' COP';
+    }
+
 
 }
-
 
 function renderizarEnCarrito(el) {
     /*    <div class="product-card">
@@ -197,14 +185,23 @@ function renderizarEnCarrito(el) {
     productCardContainerCart.appendChild(productCard);
 }
 
+for (let index = 0; index < carritoCompras.length; index++) {
+    const product = carritoCompras[index];
+    renderizarEnCarrito(product);
+    const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
+    actualizarTotal(newTotalFactura);
+
+}
+
+
+function actualizarCant(quantity, total, codigo) {
+    const quantityOut = document.getElementById(`quantity_product_${codigo}`);
+    const totalOut = document.getElementById(`total_product_${codigo}`);
+    quantityOut.innerText = quantity;
+    totalOut.innerText = total + ' COP';
+}
 
 function agregarCantidad(e) {
-    function actualizarCant(quantity, total, codigo) {
-        const quantityOut = document.getElementById(`quantity_product_${codigo}`);
-        const totalOut = document.getElementById(`total_product_${codigo}`);
-        quantityOut.innerText = quantity;
-        totalOut.innerText = total + ' COP';
-    }
     e.preventDefault();
     const codigo = Number((e.target.id).slice(8));
     const item = carritoCompras.find((el) => el.codigo === codigo);
@@ -212,34 +209,24 @@ function agregarCantidad(e) {
 
     carritoCompras[position].total += carritoCompras[position].price;
     carritoCompras[position].count++;
+    localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
 
     const newQuantity = carritoCompras[position].count;
     const newTotal = carritoCompras[position].total;
     const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-
-    localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
     actualizarCant(newQuantity, newTotal, codigo);
     actualizarTotal(newTotalFactura);
-
 }
 
 function reducirCantidad(e) {
-    function actualizarCant(quantity, total, codigo) {
-        const quantityOut = document.getElementById(`quantity_product_${codigo}`);
-        const totalOut = document.getElementById(`total_product_${codigo}`);
-        quantityOut.innerText = quantity;
-        totalOut.innerText = total + ' COP';
-    }
-
     e.preventDefault();
     const codigo = Number((e.target.id).slice(8));
     const item = carritoCompras.find((el) => el.codigo === codigo);
     const position = getIndex(item);
-
-
     if (carritoCompras[position].count > 0) {
         carritoCompras[position].total -= carritoCompras[position].price;
         carritoCompras[position].count--;
+        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
 
         if (carritoCompras[position].total == 0) {
             const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
@@ -250,13 +237,12 @@ function reducirCantidad(e) {
             const contenedorInDOm = document.getElementById(`cont_id_${codigo}`);
             contenedorInDOm.remove();
             carritoCompras.splice(position, 1);
-            localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
+            localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras));
             return;
         };
         const newQuantity = carritoCompras[position].count;
         const newTotal = carritoCompras[position].total;
         const newTotalFactura = carritoCompras.reduce((acumulador, el) => acumulador + el.total, 0);
-        localStorage.setItem(`carritoCompras`, JSON.stringify(carritoCompras))
         actualizarCant(newQuantity, newTotal, codigo);
         actualizarTotal(newTotalFactura);
     };
